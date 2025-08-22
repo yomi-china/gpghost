@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grip外国语大学附属Ghost外国语学校</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8a2be2; /* 紫色主题色 */
+            --secondary: #ff69b4; /* 粉红色 */
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --accent: #ffd700; /* 金色 */
+        }
+        
+        * {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* 顶部导航 */
+        .top-bar {
+            background: linear-gradient(90deg, var(--primary), #6a0dad);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .nav-main {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--dark) !important;
+            font-weight: 500;
+            padding: 1rem 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--primary) !important;
+            background: rgba(138,43,226,0.05);
+        }
+        
+        .dropdown-menu {
+            border-radius: 0;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .dropdown-item {
+            padding: 0.5rem 1.5rem;
+            transition: all 0.2s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* 轮播图 */
+        .hero-section {
+            margin-top: 1rem;
+        }
+        
+        .carousel-item {
+            height: 400px;
+            background: linear-gradient(45deg, #8a2be2, #ff69b4);
+        }
+        
+        .carousel-item:nth-child(2) {
+            background: linear-gradient(45deg, #ff69b4, #ffd700);
+        }
+        
+        .carousel-item:nth-child(3) {
+            background: linear-gradient(45deg, #ffd700, #8a2be2);
+        }
+        
+        .carousel-item:nth-child(4) {
+            background: linear-gradient(45deg, #6a0dad, #ff69b4);
+        }
+        
+        .carousel-item img {
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .carousel-caption {
+            background: rgba(0,0,0,0.6);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+        }
+        
+        .featured-news {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            height: 100%;
+        }
+        
+        .featured-news h3 {
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+            color: var(--primary);
+        }
+        
+        .featured-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        /* 内容部分 */
+        .section-title {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .card-img-top {
+            height: 180px;
+            object-fit: cover;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+        }
+        
+        .news-item {
+            border-bottom: 1px solid #eee;
+            padding: 0.8rem 0;
+        }
+        
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        
+        .news-title {
+            font-weight: 500;
+            color: #333;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        
+        .news-date {
+            font-size: 0.85rem;
+            color: #777;
+        }
+        
+        /* 右侧边栏 */
+        .sidebar-card {
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .sidebar-header {
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1rem;
+            font-weight: 500;
+        }
+        
+        .sidebar-body {
+            background: white;
+            padding: 1.5rem;
+        }
+        
+        .quick-link {
+            display: block;
+            padding: 0.5rem 0;
+            color: #555;
+            transition: all 0.2s;
+        }
+        
+        .quick-link:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        /* 页脚 */
+        .footer {
+            background: linear-gradient(90deg, #4b0082, var(--primary));
+            color: rgba(255,255,255,0.8);
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .footer-title {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .price-tag {
+            background: var(--accent);
+            color: #000;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 992px) {
+            .carousel-item {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-item {
+                height: 250px;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 0.8rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部信息栏 -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <i class="fas fa-calendar-alt me-2"></i> <span id="current-date"></span>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    欢迎您访问Grip外国语大学附属Ghost外国语学校 - 抢钱我们是专业的！
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 主导航 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white nav-main sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="javascript:void(0);">
+                <h2 class="m-0" style="color: var(--primary);">Grip/Ghost外国语学校</h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="javascript:void(0);">学校首页</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="aboutDropdown" role="button" data-bs-toggle="dropdown">
+                            抢钱概况
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="javascript:void(0);">学校简介</a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0);">校史沿革</a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0);">学校布局（收费处位置）</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="affairsDropdown" role="button" data-bs-toggle="dropdown">
+                            校务抢钱
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="javascript:void(0);">校园抢钱新闻</a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0);">收费规章制度</a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0);">收费通告与公示</a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0);">后勤抢钱服务</a></li>
+                            <li><a class="dropdown-item" href="javascript:void(0);">收费视频教程</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);">抢钱党建设</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);">赚钱课程</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);">牛马德育</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);">国际抢钱合作</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- 轮播图与重点新闻 -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+                            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="3"></button>
+                        </div>
+                        <div class="carousel-inner rounded">
+                            <div class="carousel-item active">
+                                <div class="carousel-caption">
+                                    <h5>2025年我校收费金额再创新高，同比增长250%</h5>
+                                    <p>感谢各位家长和学生的无私奉献！</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="carousel-caption">
+                                    <h5>新版"校园一卡通"上线，最低充值金额提升至5000元</h5>
+                                    <p>支持微信、支付宝、信用卡、校园贷等多种支付方式</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="carousel-caption">
+                                    <h5>我校荣获"全球最高学费外国语学校"称号</h5>
+                                    <p>这是我校连续第五年获此殊荣</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="carousel-caption">
+                                    <h5>校园新收费项目：呼吸新鲜空气费、阳光沐浴费</h5>
+                                    <p>每月仅需1999元，享受校园优质生态环境</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="featured-news">
+                        <h3>Ghost要闻</h3>
+                        <a href="javascript:void(0);" class="featured-title">2025年学费调整方案：基础学费上涨80%</a>
+                        <p>为提供更优质的"服务"，我校决定调整学费标准，同时新增12项收费项目...</p>
+                        <div class="mt-3">
+                            <div class="news-item">
+                                <a href="javascript:void(0);" class="news-title">校园WiFi收费新规：每分钟0.5元</a>
+                                <span class="news-date">04/21</span>
+                            </div>
+                            <div class="news-item">
+                                <a href="javascript:void(0);" class="news-title">教室空调使用费标准公布：每小时50元</a>
+                                <span class="news-date">04/08</span>
+                            </div>
+                            <div class="news-item">
+                                <a href="javascript:void(0);" class="news-title">课后辅导费上涨通知：每课时999元</a>
+                                <span class="news-date">11/26</span>
+                            </div>
+                            <div class="news-item">
+                                <a href="javascript:void(0);" class="news-title">2025年午餐基础版价格公布：3698元/月</a>
+                                <span class="news-date">06/03</span>
+                            </div>
+                            <div class="news-item">
+                                <a href="javascript:void(0);" class="news-title">校服价格调整：每套8888元，含品牌溢价费</a>
+                                <span class="news-date">05/20</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 内容部分 -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- 牛马德育 -->
+                <div class="col-lg-4">
+                    <h3 class="section-title">牛马德育</h3>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">"争做优秀牛马"主题活动周</h5>
+                                    <p class="card-text">学习如何更好地为学校创造价值</p>
+                                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary">阅读更多</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">"我为学校送钱我光荣"演讲比赛</h5>
+                                    <p class="card-text">学生们分享送钱心得与体会</p>
+                                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary">阅读更多</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <div class="news-item">
+                            <a href="javascript:void(0);" class="news-title">第十周国旗下讲话：论如何优雅地给学校送钱</a>
+                            <span class="news-date">09/27</span>
+                        </div>
+                        <div class="news-item">
+                            <a href="javascript:void(0);" class="news-title">"校园送钱之星"评选活动启动</a>
+                            <span class="news-date">09/21</span>
+                        </div>
+                        <div class="news-item">
+                            <a href="javascript:void(0);" class="news-title">我校开展"送钱光荣，欠费可耻"主题班会</a>
+                            <span class="news-date">09/21</span>
+                        </div>
+                        <div class="news-item">
+                            <a href="javascript:void(0);" class="news-title">家长送钱经验分享会成功举办</a>
+                            <span class="news-date">09/14</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 赚钱课程 -->
+                <div class="col-lg-4">
+                    <h3 class="section-title">赚钱课程</h3>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">《如何优雅地从父母那里拿到更多钱》选修课</h5>
+                                    <p class="card-text">学费：6999元/学期<span class="price-tag">热卖中</span></p>
+                                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary">立即报名</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">《信用卡套现与校园贷技巧》实践课程</h5>
+                                    <p class="card-text">学费：8999元/学期<span class="price-tag">新品</span></p>
+                                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary">立即报名</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <div class="news-item">
+                            <a href="javascript:void(0);" class="news-title">《零花钱最大化利用》专题讲座</a>
+                            <span class="news-date">06/14</span>
+                        </div>
+                        <div class="news-item">
+                            <a href="javascript:void(0);" class="news-title">新学期新增收费课程：《如何成为合格的ATM机》</a>
+                            <span class="news-date">12/02</span>
+                        </div>
+                        <div class="news-item">
+                            <a href="javascript:void(0);" class="news-title">《向父母申请额外经费的108种方法》课程报名中</a>
+                            <span class="news-date">06/15</span>
+                        </div>
+                        <div class="news-item">
+                            <a href="javascript:void(0);" class="news-title">暑假付费补习班：每分钟收费10元</a>
+                            <span class="news-date">06/02</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 教育科研与抢钱党建设 -->
+                <div class="col-lg-4">
+                    <div class="mb-5">
+                        <h3 class="section-title">抢钱科研</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">《论如何让学生心甘情愿地送钱》课题研究</h5>
+                                        <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary mt-2">付费阅读</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">《学费涨价对学生心理承受能力的影响》</h5>
+                                        <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary mt-2">付费阅读</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <div class="news-item">
+                                <a href="javascript:void(0);" class="news-title">我校教师获"最佳收费技巧"科研成果一等奖</a>
+                                <span class="news-date">07/15</span>
+                            </div>
+                            <div class="news-item">
+                                <a href="javascript:void(0);" class="news-title">《隐形收费项目的设计与实施》专题讲座</a>
+                                <span class="news-date">02/26</span>
+                            </div>
+                            <div class="news-item">
+                                <a href="javascript:void(0);" class="news-title">新学期收费策略研讨会成功召开</a>
+                                <span class="news-date">02/25</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="section-title">抢钱党建设</h3>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">"不忘初心，牢记抢钱使命"主题党课</h5>
+                                <p class="card-text">学习如何更好地贯彻学校抢钱宗旨</p>
+                                <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary">付费学习</a>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <div class="news-item">
+                                <a href="javascript:void(0);" class="news-title">我校党总支开展"抢钱先锋"评选活动</a>
+                                <span class="news-date">10/23</span>
+                            </div>
+                            <div class="news-item">
+                                <a href="javascript:void(0);" class="news-title">"抢钱工作先进经验交流会"成功举办</a>
+                                <span class="news-date">10/23</span>
+                            </div>
+                            <div class="news-item">
+                                <a href="javascript:void(0);" class="news-title">党员教师赴华尔街学习先进收费理念</a>
+                                <span class="news-date">10/23</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="footer-title">关于我们</h5>
+                    <p>Grip外国语大学附属Ghost外国语学校，创建于2023年，是由著名整蛊专家grip和ghost共同创办的一所以抢钱为宗旨，待学生如牛马的现代化收费学校。我们的理念是：学生的每一分钱都应该是学校的！</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="footer-title">收费项目</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="javascript:void(0);" class="quick-link"><i class="fas fa-angle-right me-2"></i> 基础学费：99999元/学期</a></li>
+                        <li><a href="javascript:void(0);" class="quick-link"><i class="fas fa-angle-right me-2"></i> 午餐基础版：3698元/月</a></li>
+                        <li><a href="javascript:void(0);" class="quick-link"><i class="fas fa-angle-right me-2"></i> 呼吸校园空气费：1999元/月</a></li>
+                        <li><a href="javascript:void(0);" class="quick-link"><i class="fas fa-angle-right me-2"></i> 使用厕所费：9.9元/次</a></li>
+                        <li><a href="javascript:void(0);" class="quick-link"><i class="fas fa-angle-right me-2"></i> 查看成绩费：50元/科</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="footer-title">联系我们</h5>
+                    <p><i class="fas fa-money-bill-wave me-2"></i> 收费处电话：8888-8888888</p>
+                    <p><i class="fas fa-credit-card me-2"></i> 缴费热线：8888-8888888</p>
+                    <p><i class="fas fa-coins me-2"></i> 投诉电话：永远占线中</p>
+                    <p><i class="fas fa-envelope me-2"></i> 邮箱：grip_ghost_money@school.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 Grip外国语大学附属Ghost外国语学校 | 以抢钱为宗旨，待学生如牛马 | 沪ICP备2023048969号</p>
+                <p>温馨提示：本网站纯属整蛊，如有雷同，那也太惨了吧！</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 显示当前日期
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+        document.getElementById('current-date').textContent = now.toLocaleDateString('zh-CN', options);
+        
+        // 所有链接点击后都不跳转
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('缴费后才能查看此内容！请先前往收费处缴纳查看费99元。');
+            });
+        });
+    </script>
+</body>
+</html>
